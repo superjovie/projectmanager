@@ -1,0 +1,278 @@
+<form class="layui-form">
+    <fieldset>
+        <legend>项目基本信息</legend>
+        <div class="layui-form-item">
+            <label class="layui-form-label">项目年份</label>
+            <div class="layui-input-inline">
+                <input value={{ year }} id="showyear" name="quiz2" class="layui-input" type="text" placeholder="项目年份">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">项目名称</label>
+            <div class="layui-input-block">
+                <input value={{ x[0] }} type="text" name="Name" lay-verify="title" autocomplete="off" placeholder="建新项目请在此输入新项目名称"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">项目内容</label>
+            <div class="layui-input-block">
+                <input value={{ x[3] }} type="text" name="ContractContent" autocomplete="off" placeholder="请输入标题" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">项目地址</label>
+                <div class="layui-input-block">
+                    <input value={{ x[1] }} type="text" name="Address" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">合同工期</label>
+                <div class="layui-input-block">
+                    <input value={{ x[2] }} type="number" name="ContractDays" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">合同金额</label>
+                <div class="layui-input-block">
+                    <input value={{ x[12] }} type="number" name="Total" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">中标时间</label>
+                <div class="layui-input-block">
+                    <input value={{ x[4] }} type="text" name="BiddingTime" onblur="isDate(this.value)" placeholder="请输入"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">开工时间</label>
+                <div class="layui-input-block">
+                    <input value={{ x[5] }} type="text" name="OpenTime" onblur="isDate(this.value)" placeholder="请输入" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">锁人信息</label>
+                <div class="layui-input-block">
+                    <input value={{ x[6] }} type="text" name="LockPerson" placeholder="请输入" autocomplete="off" class="layui-input"
+                           onblur="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">付款方式</label>
+                <div class="layui-input-block">
+                    <input value={{ x[7] }} type="text" name="PayMethod" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">业主/代表</label>
+                <div class="layui-input-block">
+                    <input value={{ x[8] }} type="text" name="Owner" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">联系方式</label>
+                <div class="layui-input-block">
+                    <input value={{ x[9] }} type="text" name="OwnerContact" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">项目负责人</label>
+                <div class="layui-input-block">
+                    <input value={{ x[10] }} type="text" name="Worker" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">联系方式</label>
+                <div class="layui-input-block">
+                    <input value={{ x[11] }} type="text" name="WorkerContact" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">保险</label>
+                <div class="layui-input-block">
+                    <input value={{ x[24] }} type="text" name="Insurance" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">保险到期日</label>
+                <div class="layui-input-block">
+                    <input value={{ x[25] }} type="text" name="InsuranceEnd" onblur="isDate(this.value)" placeholder="请输入"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">保险文件</label>
+                <div class="layui-input-block">
+                    <input value={{ x[27] }} type="text" name="InsuranceFile" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">是否完工</label>
+                {% if x[28]=='完工' %}
+                <div class="layui-input-block">
+                    <input type="radio" name="Endding" title="完工" value=1 class="layui-input" checked>
+                    <input type="radio" name="Endding" title="未完工" value=0 class="layui-input">
+                </div>
+                {% else %}
+                <div class="layui-input-block">
+                    <input type="radio" name="Endding" title="完工" value=1 class="layui-input">
+                    <input type="radio" name="Endding" title="未完工" value=0 class="layui-input" checked>
+                </div>
+                {% endif %}
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">未完工备注</label>
+                <div class="layui-input-block">
+                    <input value={{ x[30] }} type="text" name="NotEnddingRemark" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend>项目资料</legend>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 10px">
+                <button type="button" class="layui-btn" onclick="AddFile('container2')"><i class="layui-icon">&#xe654;</i></button>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="container2">
+            {% for i in range(0,len1) %}
+            <div class="layui-inline" jovie="super">
+                <div class="layui-input-block" style="margin-left: 10px">
+                    <input value={{ x[13][i] }} type="text" name="P" placeholder="资料名" autocomplete="off" class="layui-input">
+                    <input value={{ x[14][i] }} type="text" name="F" onblur="isDate(this.value)" placeholder="请输入" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>巡查信息</legend>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 10px">
+                <button type="button" class="layui-btn" onclick="AddPatrol('Patrol2')"><i class="layui-icon">&#xe654;</i>
+                </button>
+            </div>
+        </div>
+        <div id="Patrol2">
+            {% for i in range(0,len2) %}
+            <div class="layui-form-item layui-form-pane">
+                <div class="layui-inline">
+                    <label class="layui-form-label">巡查时间</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[15][i] }} type="text" name="Pt" onblur="isDate(this.value)" placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">巡查人</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[16][i] }} type="text" name="Pn" placeholder="请输入" autocomplete="off" class="layui-input"
+                               onblur="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">巡查原因</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[17][i] }} type="text" name="Pr" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">巡查结果</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[18][i] }} type="text" name="Prs" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>巡查信息</legend>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 10px">
+                <button class="layui-btn" onclick="AddPay('Pay2')"><i class="layui-icon">&#xe654;</i></button>
+            </div>
+        </div>
+        <div id="Pay2">
+            {% for i in range(0,len3) %}
+            <div class="layui-form-item layui-form-pane">
+                <div class="layui-inline">
+                    <label class="layui-form-label">付款日期</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[19][i] }} type="text" onblur="isDate(this.value)" name="PayTime" placeholder="请输入"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">付款金额</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[20][i] }} type="number" name="Payment" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>备注信息</legend>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 10px">
+                <button class="layui-btn" onclick="AddRemark('Remark2')"><i class="layui-icon">&#xe654;</i></button>
+            </div>
+        </div>
+        <div id="Remark2">
+            {% for i in range(0,len4) %}
+            <div class="layui-form-item layui-form-pane">
+                <div class="layui-inline">
+                    <label class="layui-form-label">备注时间</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[21][i] }} type="text" name="RemarkTime" onblur="isDate(this.value)" placeholder="请输入"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">备注原因</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[22][i] }} type="text" name="RemarkReason" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">备注结果</label>
+                    <div class="layui-input-block">
+                        <input value={{ x[23][i] }} type="text" name="RemarkResuilt" placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+    <div class="layui-form-item"
+         style="margin: 0 auto; width: 100%; position: fixed; bottom: 5px; height: 50px; font-size: 0; line-height: 0; z-index: 100; text-align: right;">
+        <input class="layui-btn" lay-submit="" lay-filter="demo1" value="立即设置">
+    </div>
+</form>
